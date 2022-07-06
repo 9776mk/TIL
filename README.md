@@ -18,8 +18,8 @@
 
 ## 🏫 과정 ##
 
-- [Markdown]()
-- [Git / GitHub]()
+- [Markdown](https://github.com/9776mk/TIL/blob/master/MARKDOWN/Markdown.md)
+- [Git / GitHub](https://github.com/9776mk/TIL/blob/master/Git/Git.md)
 - 파이썬 프로그래밍
 - 
 
@@ -28,7 +28,8 @@
 ## 🚩 목표
 
 - **당일 업로드**
-- **당일 업로드가 불가능한 경우 주말 활용해서 꼭 채우기!**
- ![거북이](README.assets/거북이.gif)
+   - **당일 업로드가 불가능한 경우 주말 활용해서 꼭 채우기!**
+      ![거북이](README.assets/거북이.gif)
+
 - **거북이처럼 꾸준하게, 거북이치고는 빠르게**
 
