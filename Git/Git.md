@@ -1,4 +1,4 @@
-# ⚠사용하기 전 주의⚠
+# ⚠사용하기 전 명심⚠
 
 1. git 로컬에서만 편집(수정, 삭제, 생성)
 
@@ -56,7 +56,7 @@
    - 임시 공간
 3) <u>버전으로 남긴다</u> (commit) (3통)
 
-![Git](Git.assets/Git 설명.PNG)
+![Git](./Git.assets/Git 설명.PNG)
 
 
 
@@ -64,7 +64,7 @@
 
 🌟 **GitHub도 버전을 관리한다!  **🌟
 
-![git hub](Git.assets/git hub.png)
+![git hub](./Git.assets/git hub.png)
 
 - Git은 본인의 컴퓨터(로컬)에서, GitHub는 원격으로 버전을 관리한다.
 
@@ -137,7 +137,7 @@
 
 ---
 
-- $ git remote add origin https://github.com/사용자id/저장소이름.git : 원격저장소에 origin으로 추가해. 새로운 원격저장소 경로 설정. 한 번만!
+- >$ git remote add origin https://github.com/사용자id/저장소이름.git : 원격저장소에 origin으로 추가해. 새로운 원격저장소 경로 설정. 한 번만!
 
 
 
