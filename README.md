@@ -12,7 +12,7 @@
 
 ## 📅 기간
 
-**2022-07-06 ~** **2022-12-16**
+**2022-07-06 ~ 2022-12-16**
 
 
 
@@ -21,7 +21,7 @@
 - [Markdown](https://github.com/9776mk/TIL/blob/master/MARKDOWN/Markdown.md)
 - [Git / GitHub](https://github.com/9776mk/TIL/blob/master/Git/Git.md)
 - 파이썬 프로그래밍
-- 
+- 알고리즘
 
 
 
