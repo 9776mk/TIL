@@ -72,11 +72,11 @@
 
   1. new repository -> 이름 설정 후 저장소 생성(이름이 곧 주소가 됨) -> 주소 확인
 
-     > https://github.com/사용자id/저장소이름.git
+     > h&#8203;ttps://github.com/사용자id/저장소이름.git
 
   2. 로컬 저장소(git으로 관리할 폴더)에 설정한다.
 
-     > $ git remote add origin https://github.com/사용자id/저장소이름.git
+     > $ git remote add origin h&#8203;ttps://github.com/사용자id/저장소이름.git
      >
      > 당분간 저장소 이름에 origin을 사용한다.
 
@@ -137,7 +137,7 @@
 
 ---
 
-- >$ git remote add origin https://github.com/사용자id/저장소이름.git : 원격저장소에 origin으로 추가해. 새로운 원격저장소 경로 설정. 한 번만!
+- **$ git remote add origin h&#8203;ttps://github.com/사용자id/저장소이름.git** : 원격저장소에 origin으로 추가해. 새로운 원격저장소 경로 설정. 한 번만!
 
 
 
