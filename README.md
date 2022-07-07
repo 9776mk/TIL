@@ -18,8 +18,8 @@
 
 ## 🏫 과정 ##
 
-- [Markdown](https://github.com/9776mk/TIL/blob/master/MARKDOWN/Markdown.md)
-- [Git / GitHub/ Git Flow](https://github.com/9776mk/TIL/blob/master/Git/Git.md)
+- [Markdown](https://github.com/9776mk/TIL/blob/master/MARKDOWN)
+- [Git / GitHub/ Git Flow](https://github.com/9776mk/TIL/blob/master/Git)
 - 파이썬 프로그래밍
 - 알고리즘
 
