@@ -1,8 +1,8 @@
-# ⚠사용하기 전 명심⚠
+# ☝ 사용하기 전 명심하기 ☝
 
-1. git 로컬에서만 편집(수정, 삭제, 생성)
+1. **Git 로컬**에서만 편집(수정, 삭제, 생성) commit 후 push
 
-2. 작업 전에 git pull origin master 실행
+2. 작업 전에 **git pull origin master** 실행
 
    (최신 버전으로 업데이트 하고 작업)
 
@@ -29,7 +29,8 @@
 
 
 ## 디렉토리 명령어
-- CLI 인터페이스를 위한 명령어
+CLI 인터페이스를 위한 명령어
+
 - $ : 명령하는 줄의 시작
 - **pwd(print working directory)** : 현재 디렉토리 출력
 - **cd(change directory)** : 디렉토리 이동 
@@ -59,6 +60,14 @@
 
 ![Git](./Git.assets/Git_설명.PNG)
 
+## Git의 기능
+
+### .gitignore
+
+- 버전 관리에 필요하지 않은 파일들 혹은 보안상 업로드 되면 안 되는 파일들 무시하는 기능.
+- Git저장소에 .gitigore 파일을 생성하고 안의 내용에 특정 파일, 디렉토리, 확장자 등을 넣으면 인식되지 않는다.
+- 커밋 하기 전에 미리 작성해놓자!
+
 
 
 # GitHub
@@ -75,47 +84,48 @@
 
      > h&#8203;ttps://github.com/사용자id/저장소이름.git
 
-  2. 로컬 저장소(git으로 관리할 폴더)에 설정한다.
+  2. 로컬 저장소(Git으로 관리할 폴더)에 설정한다.
 
-     > $ git remote add origin h&#8203;ttps://github.com/사용자id/저장소이름.git
+     > **$ git remote add origin h&#8203;ttps://github.com/사용자id/저장소이름.git**
      >
      > 당분간 저장소 이름에 origin을 사용한다.
 
   3. 저장소 확인을 한다.
 
-     > $ git remote -v
+     > **$ git remote -v**
 
 
 
 ### Push
 
 - 로컬 저장소에서 원격 저장소로 변경 사항을 올리기 위해 사용
-  - $ git push <저장소 이름><브랜치 이름>
+  - **$ git push <저장소 이름><브랜치 이름>**
   - 당분간 $ git push origin master 을 사용함.
 - 만약 변경사항이 없다면 push 되지 않는다!
 
 ### Pull
 
 - 원격 저장소의 변경 사항(커밋)을 로컬 저장소에 가져와 병합하기 위해 사용
-  - $ git pull <원격저장소 이름><브랜치 이름>
+  - **$ git pull <원격저장소 이름><브랜치 이름>**
   - 당분간 $ git pull origin master 을 사용함.
 
 ### Clone
 
 - 원격 저장소의 변경사항을 그대로 가져오기 위해 사용
-  - $ git clone <원격저장소주소>
+  - **$ git clone <원격저장소주소>**
 - 원격 저장소의 이름(~.git)의 폴더가 생성.
-- 압축 파일(Zip) Download할 경우 
+- 압축 파일(Zip) Download할 경우에는 저장소를 불러오는 것이 아님.
 
 
 
 # Git/GitHub 명령어
 
 - **$ git init** -> (master) git에 기록하기 시작할 장소에서 시작. 해당 폴더의 변경사항들이 관리됨
-
 - **$ git add <file>** : 1통->2통, 빨간색에서 초록색으로 변경. 파일이 옮겨지는 것이 아닌 상태가 변경
 
   - **$ git add .** :  현재 디렉토리 중 변경된 파일들만(status에 뜨는 것들만)
+- **$ git restore --staged** <file> : 2통->1통으로 다시 돌릴 때
+- **$ git restore <file>** : 1통에서 작업하던 것을 되돌리고 싶을 때
 
 - **$ git commit -m '<커밋메시지>'**  : 2통->3통
 
@@ -131,10 +141,10 @@
   - cd .git : git으로 들어가는 방법 -> (GIT_DIR!) ☠ 혼나기 싫으면 들어가지 말 것!  ☠
 
 - **$ git log** : 저장소에 기록된 커밋(버전)을 조회.
-  - git log -1 : 최근 1개(바로 직전)의 커밋을 조회
-  - git log --oneline : 한 줄로 보여줘
-  - git log -2 --oneline : 최근 2개를 한 줄로 보여줘
-  - git log --oneline --graph :  그래프로 보여줘
+  - **git log -1** : 최근 1개(바로 직전)의 커밋을 조회
+  - **git log --oneline** : 한 줄로 보여줘
+  - **git log -2 --oneline** : 최근 2개를 한 줄로 보여줘
+  - **git log --oneline --graph** :  그래프로 보여줘
 
 - **$ git remote -v** : 저장소 확인
 
@@ -144,105 +154,83 @@
 
 
 
-# 그 외
-
-## .gitignore
-
-- 버전 관리에 필요하지 않은 파일들 혹은 보안상 업로드 되면 안 되는 파일들 무시하는 기능.
-- Git저장소에 .gitigore 파일을 생성하고 안의 내용에 특정 파일, 디렉토리, 확장자 등을 넣으면 인식되지 않는다.
-- 커밋 하기 전에 미리 작성해놓자!
-
-
-
-
-
 # Git Flow
 
 - Git을 활용하여 협업하는 흐름으로 **branch**를 활용하는 전략
   - 브랜치를 쓰는 이유는 로컬에서 독립적으로 일하기 위해!
 
+![Git_flow_tree](Git.assets/Git_flow_tree.PNG)
 
+## ☝ 기본 원칙 ☝
 
-☝ 기본 원칙 ☝
+1. master branch는 반드시 **배포 가능**한 상태
 
-1. master branch는 반드시 배포 가능한 상태
+2. feature branch는 각 기능의 **의도**를 알 수 있도록 작성한다.
 
-2. feature branch는 각 기능의 의도를 알 수 있도록 작성한다.
+3. Commit message는 매우 중요하며 **명확**하게 작성
 
-3. Commit message는 매우 중요하며 명확하게 작성
+4. **Pull Request**를 통해 협업 진행
 
-4. Pull Request를 통해 혛업 진행
-
-5. 변경사항을 반영하고 싶다면, master branch에 병합한다.
-
-   
-
-## 트리 그림 추가
+5. 변경사항을 반영하고 싶다면, **master branch에 병합**한다.
 
 
 
+## 협업 상황
 
+## ![협업](Git.assets/협업.PNG)
 
+1. 혼자서 다 하는 경우(Fast-Forward) : 기존 master 브랜치에 변경사항이 없으므로 계속 나간다.
 
-
-Branch merge 이력을 합치기 위한 명령어
-
-(master)가 브랜치를 의미!
-
-(HEAD -> A) : A의 브랜치의 최근 commit
-
-
-
-
-
-브랜치를 위한 상황 
-## (그림 추가)
-
-해야할 파일이 총 2개
-
-1. 혼자서 다 하는 경우(Fast-Forward)
-
-   (Branch merge -merge commit)
-
-2. 둘이서 다른 파일로 작업하는 경우(1개 / 1개) 
-
+2. 둘이서 다른 파일로 작업하는 경우(1개 / 1개) : 브랜치를 master로 병합해 새로운 커밋을 만든다.
 3. 둘이서 같은 파일 2개로 작업하는 경우 (0.5 0.5 / 0.5 0.5) 
-
-   -> 손을 봐야한다. -> 커밋이 되지 않음 -> git status를 사용해 both modified으로 확인.
-
-
-
-1. Feature Branch Workflow(저장소의 소유권이 있는 경우)
-   - 병합을 GitHub에서 진행. 
-   - Branch삭제-> Pull 받은 다음 진행
-   - branch에서 바로 git push origin '이름'한 후 github에서 compare-> pull requests -> new pull request -> [base:master <-compare:hotfix] : hotfix 브랜치를 master에게!
-   - pull requests -> 메시지 작성 -> create pull request -> merge pull request -> confirm하면 병합됨
-   - 로컬이 따로 있을 때, 둘 다 원격으로 각자의 branch를 merge할 수 있음.
-   - 합치는 작업은 제일 잘 하는 사람이 하나씩 확인해서 하기.
-
-2. Forking Workflow(저장소의 소유권이 없는 경우)
-   - 우측 상단 fork -> create fork -> 내 저장소에 생김(forked from ~)
-   - clone -> 작업 후 push(본인 저장소에) -> pull request 진행
+   - 같은 파일을 수정했으므로 충돌 발생
+   - 커밋은 되지 않는다.
+   - 서로 코드를 확인한 후 통일한 후 병합해 커밋한다.
+   - git status를 사용해 both modified 로 확인할 수 있다.
 
 
 
+## Git Flow의 종류
+
+### Feature Branch Workflow
+
+- 저장소의 소유권이 있는 경우
+
+- 병합을 GitHub에서 진행. 
+- Branch삭제-> Pull 받은 다음 진행
+- branch에서 바로 git push origin '이름'한 후 github에서 compare-> pull requests -> new pull request -> [base:master <-compare:hotfix] : hotfix 브랜치를 master에게!
+- pull requests -> 메시지 작성 -> create pull request -> merge pull request -> confirm하면 병합됨
+- 로컬이 따로 있을 때, 둘 다 원격으로 각자의 branch를 merge할 수 있음.
+- 합치는 작업은 제일 잘 하는 사람이 하나씩 확인해서 하기.
+
+---
+
+### Forking Workflow
+
+- 저장소의 소유권이 없는 경우
+
+- 우측 상단 fork -> create fork -> 내 저장소에 생김(forked from ~)
+- clone -> 작업 후 push(본인 저장소에) -> pull request -> ...
 
 
 
+❕ GitHub에서 merge한 후 브런치는 본인이 지우기
 
 
 
-# 브랜치 명령어
+## branch 명령어
 
-- **gir branch** : branch 조회
-- **git branch A** : A라는 이름의 브랜치 생성 
-- **git checkout A** : A로 브랜치 이동
-- **git checkout -b A** : A를 만들면서 이동
+**(HEAD -> A)** : A 브랜치의 최근 commit을 의미
+
+- **$ git branch** : branch 조회
+- $ **git branch A** : A라는 이름의 브랜치 생성 
+- **$ git checkout A** : A로 브랜치 이동
+- **$ git checkout -b A** : A를 만들면서 이동
 - .............................. (**A**) 
 
-​       **git merge B**  : A에 B를 합친다.
+​       **$ git merge B**  : A에 B를 합친다.
 
-- **git branch -d A** : A 브랜치 삭제
+- **$ git branch -d A** : A 브랜치 삭제
   - 브랜치를 지워도 이미 머지를 했으면 커밋은 지워지지 않는다.
 
 
@@ -250,3 +238,11 @@ Branch merge 이력을 합치기 위한 명령어
 
 
 
+
+# 정리
+
+![git_github_graph](Git.assets/git_github_graph.PNG)
+
+
+
+![gir_flow_graph](Git.assets/gir_flow_graph.PNG)
