@@ -10,7 +10,8 @@
 
 # Git
 
-- 🌟 **Git은 분산버전관리시스템(DVCS) ** 🌟
+🌟 **Git은 분산버전관리시스템(DVCS) ** 🌟
+
 - 모든 히스토리를 클라이언트들이 공유
 - 버전 : 컴퓨터 소프트웨어 특정 상태
 - 버전 관리 시스템 : 여러 버전을 관리하는 것
@@ -56,7 +57,7 @@
    - 임시 공간
 3) <u>버전으로 남긴다</u> (commit) (3통)
 
-![Git](./Git.assets/Git 설명.PNG)
+![Git](./Git.assets/Git_설명.PNG)
 
 
 
@@ -64,7 +65,7 @@
 
 🌟 **GitHub도 버전을 관리한다!  **🌟
 
-![git hub](./Git.assets/git hub.png)
+![git hub](./Git.assets/git_hub.png)
 
 - Git은 본인의 컴퓨터(로컬)에서, GitHub는 원격으로 버전을 관리한다.
 
@@ -95,7 +96,7 @@
 
 ### Pull
 
-- 원격 저장소의 변경 사항을 로컬 저장소에 가져와 병합하기 위해 사용
+- 원격 저장소의 변경 사항(커밋)을 로컬 저장소에 가져와 병합하기 위해 사용
   - $ git pull <원격저장소 이름><브랜치 이름>
   - 당분간 $ git pull origin master 을 사용함.
 
@@ -103,6 +104,8 @@
 
 - 원격 저장소의 변경사항을 그대로 가져오기 위해 사용
   - $ git clone <원격저장소주소>
+- 원격 저장소의 이름(~.git)의 폴더가 생성.
+- 압축 파일(Zip) Download할 경우 
 
 
 
@@ -112,7 +115,7 @@
 
 - **$ git add <file>** : 1통->2통, 빨간색에서 초록색으로 변경. 파일이 옮겨지는 것이 아닌 상태가 변경
 
-  - **$ git add .** : 모든 파일을 add시킴
+  - **$ git add .** :  현재 디렉토리 중 변경된 파일들만(status에 뜨는 것들만)
 
 - **$ git commit -m '<커밋메시지>'**  : 2통->3통
 
@@ -141,13 +144,107 @@
 
 
 
-# 다양한 기능
+# 그 외
 
 ## .gitignore
 
 - 버전 관리에 필요하지 않은 파일들 혹은 보안상 업로드 되면 안 되는 파일들 무시하는 기능.
 - Git저장소에 .gitigore 파일을 생성하고 안의 내용에 특정 파일, 디렉토리, 확장자 등을 넣으면 인식되지 않는다.
 - 커밋 하기 전에 미리 작성해놓자!
+
+
+
+
+
+# Git Flow
+
+- Git을 활용하여 협업하는 흐름으로 **branch**를 활용하는 전략
+  - 브랜치를 쓰는 이유는 로컬에서 독립적으로 일하기 위해!
+
+
+
+☝ 기본 원칙 ☝
+
+1. master branch는 반드시 배포 가능한 상태
+
+2. feature branch는 각 기능의 의도를 알 수 있도록 작성한다.
+
+3. Commit message는 매우 중요하며 명확하게 작성
+
+4. Pull Request를 통해 혛업 진행
+
+5. 변경사항을 반영하고 싶다면, master branch에 병합한다.
+
+   
+
+## 트리 그림 추가
+
+
+
+
+
+
+
+Branch merge 이력을 합치기 위한 명령어
+
+(master)가 브랜치를 의미!
+
+(HEAD -> A) : A의 브랜치의 최근 commit
+
+
+
+
+
+브랜치를 위한 상황 
+## (그림 추가)
+
+해야할 파일이 총 2개
+
+1. 혼자서 다 하는 경우(Fast-Forward)
+
+   (Branch merge -merge commit)
+
+2. 둘이서 다른 파일로 작업하는 경우(1개 / 1개) 
+
+3. 둘이서 같은 파일 2개로 작업하는 경우 (0.5 0.5 / 0.5 0.5) 
+
+   -> 손을 봐야한다. -> 커밋이 되지 않음 -> git status를 사용해 both modified으로 확인.
+
+
+
+1. Feature Branch Workflow(저장소의 소유권이 있는 경우)
+   - 병합을 GitHub에서 진행. 
+   - Branch삭제-> Pull 받은 다음 진행
+   - branch에서 바로 git push origin '이름'한 후 github에서 compare-> pull requests -> new pull request -> [base:master <-compare:hotfix] : hotfix 브랜치를 master에게!
+   - pull requests -> 메시지 작성 -> create pull request -> merge pull request -> confirm하면 병합됨
+   - 로컬이 따로 있을 때, 둘 다 원격으로 각자의 branch를 merge할 수 있음.
+   - 합치는 작업은 제일 잘 하는 사람이 하나씩 확인해서 하기.
+
+2. Forking Workflow(저장소의 소유권이 없는 경우)
+   - 우측 상단 fork -> create fork -> 내 저장소에 생김(forked from ~)
+   - clone -> 작업 후 push(본인 저장소에) -> pull request 진행
+
+
+
+
+
+
+
+
+
+# 브랜치 명령어
+
+- **gir branch** : branch 조회
+- **git branch A** : A라는 이름의 브랜치 생성 
+- **git checkout A** : A로 브랜치 이동
+- **git checkout -b A** : A를 만들면서 이동
+- .............................. (**A**) 
+
+​       **git merge B**  : A에 B를 합친다.
+
+- **git branch -d A** : A 브랜치 삭제
+  - 브랜치를 지워도 이미 머지를 했으면 커밋은 지워지지 않는다.
+
 
 
 
