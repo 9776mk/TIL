@@ -64,9 +64,18 @@ CLI 인터페이스를 위한 명령어
 
 ### .gitignore
 
-- 버전 관리에 필요하지 않은 파일들 혹은 보안상 업로드 되면 안 되는 파일들 무시하는 기능.
+- 버전 관리에 필요하지 않은 파일들 혹은 보안상 업로드 되면 안 되는 파일들 무시하는 기능
+- git은 모든 하위 디렉토리의 파일을 추적한다.
 - Git저장소에 .gitigore 파일을 생성하고 안의 내용에 특정 파일, 디렉토리, 확장자 등을 넣으면 인식되지 않는다.
 - 커밋 하기 전에 미리 작성해놓자!
+- 이름 바꾸기 불가능
+
+### .gitkeep
+
+- 빈 폴더를 만들기 위함
+- A라는 빈폴더를 커밋 시키고 싶을 때 .gitkeep 파일을 만들어주면 된다.
+- git은 효율적으로 관리하기 위해 파일을 기준. 빈 폴더는 아무 의미없음
+- 이름 바꾸기 가능
 
 
 
@@ -192,9 +201,9 @@ CLI 인터페이스를 위한 명령어
 
 ## Git Flow의 종류
 
-### Feature Branch Workflow
+### Shared repo(Feature Branch Workflow)
 
-- 저장소의 소유권이 있는 경우
+- 초대 해서 저장소의 소유권이 있는 경우
 
 - 병합을 GitHub에서 진행. 
 - Branch삭제-> Pull 받은 다음 진행
@@ -205,12 +214,15 @@ CLI 인터페이스를 위한 명령어
 
 ---
 
-### Forking Workflow
+### Fork  & PR(Forking Workflow)
 
 - 저장소의 소유권이 없는 경우
 
-- 우측 상단 fork -> create fork -> 내 저장소에 생김(forked from ~)
-- clone -> 작업 후 push(본인 저장소에) -> pull request -> ...
+1. fork -> create fork -> 내 저장소에 생김(forked from ~)()
+
+2. clone -> 작업 -> add, commit
+3. 내 저장소로 push
+4. Github에서 pull request
 
 
 
