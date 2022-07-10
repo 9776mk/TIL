@@ -1,17 +1,20 @@
+# 👏 KDT 👏
 ## TIL ❓ **Today I Learned** ❗
 📝 **오늘 나는 배웠습니다**
 
-<figure style="display:block; text-align:center;">
-  <img src="README.assets/공부.PNG"
-       style="width: 450px; margin:0px auto">
-  <figcaption style="text-align:center; font-size:15px; color:#808080">
-    <b> 미래를 위해 KDT 수업 시간에 배운 내용들을 정리, 저장하는 공간
-    </b>
-  </figcaption>
-</figure>
+![공부](README.assets/공부.PNG)
+
+**미래를 위해 KDT 수업 시간에 배운 내용들을 정리, 저장하는 공간**
+
+
+
+
+
 ## 📅 기간
 
 **2022-07-06 ~ 2022-12-16**
+
+
 
 ## 🏫 과정 ##
 
@@ -29,12 +32,9 @@
 ## 🚩 목표
 
 - **당일 업로드**
-   - **<u>당일 업로드가 불가능한 경우 주말 활용해서 꼭 채우기!</u>**
+   - **당일 업로드가 불가능한 경우 주말 활용해서 꼭 채우기!**
 
-<figure style="display:block; text-align:center;">
-  <img src="README.assets/거북이.gif"
-       style="width: 450px; margin:0px auto">
-  <figcaption style="text-align:center; font-size:15px; color:#808080">
-    <b>거북이처럼 꾸준하게, 거북이치고는 빠르게</b>
-  </figcaption>
-</figure>
+![빠른 거북이](README.assets/빠른 거북이.gif)
+
+- **거북이처럼 꾸준하게, 거북이치고는 빠르게**
+
