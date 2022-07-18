@@ -8,8 +8,6 @@ MIT python
 
 파이썬 코딩도장(온라인 책)
 
-
-
 한 줄 주석 처리
 
 Ctrl + /
@@ -20,8 +18,6 @@ Ctrl + /
 n = int(input, 16)
 ```
 
-
-
 # 소수 n번째까지 출력
 
 - fstring
@@ -29,8 +25,6 @@ n = int(input, 16)
 ```python
 {변수:.nf}
 ```
-
-
 
 # 파이썬 리스트 초기화
 
@@ -50,8 +44,6 @@ m = 4
 arry = [[0] * m for _ in range(n)]
 ```
 
-
-
 # 글자 거꾸로 쓰기
 
 ```python
@@ -59,8 +51,6 @@ word = 'dsfdjkljafkl'
 for char in (len(word)):
 print(word[len(word)-i-1])
 ```
-
-
 
 # 반복문으로 여러 줄 입력받을 때
 
@@ -85,8 +75,6 @@ n = int(sys.stdin.readline())
 data = [sys.stdin.readline().strip() for i in range(n)]
 ```
 
-
-
 # try ~ except ~
 
 ```python
@@ -102,5 +90,22 @@ while True:
 - 오류 처리를 위한 구문
 - try 블록 수행 중 오류가 발생하면 excpet 블록이 수행됨.
 
+# 딕셔너리 활용
+
+```python
+word = 'banana'
+result = {}
+for char in word:
+# result[char] # 없으면 keyError
+# result.get(char, 0) #없으면 None, 기본값을 주면 0
+
+result[char] = result.get(char, 0) + 1
+```
 
 
+
+# 리스트 안의 key를 이용해 value 값 꺼내기
+
+```python
+list[index]['키]
+```
