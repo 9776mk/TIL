@@ -100,12 +100,28 @@ for char in word:
 # result.get(char, 0) #없으면 None, 기본값을 주면 0
 
 result[char] = result.get(char, 0) + 1
+# result 딕셔너리에서 char 키에 해당하는 value를 가져오기.
+# 만약 value값이 없으면 0으로 초기화, 
+# 있으면 result[char]에 +1을 한 뒤 추가 
 ```
 
-
+```python
+for fruit in fruits:
+    if fruit not in fruit_count:
+        fruit_count[fruit] = 1
+    else:
+        fruit_count[fruit] += 1
+```
 
 # 리스트 안의 key를 이용해 value 값 꺼내기
 
 ```python
-list[index]['키]
+list[index]['키']
+```
+
+# 파일 읽기
+
+```python
+import sys
+sys.stdin = open("파일명.txt, "r")
 ```
