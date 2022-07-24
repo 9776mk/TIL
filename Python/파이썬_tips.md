@@ -125,3 +125,35 @@ list[index]['키']
 import sys
 sys.stdin = open("파일명.txt, "r")
 ```
+
+# 중요한 정보(ex.key값)를 로컬에서는 사용하고 Github에서는 보이지 않게 하는 방법
+
+1. 파이썬 Scripts에 pip install python-dotenv
+
+2. 루트 폴더에 .env 생성 및 .gitignore에 cnrk
+
+3. .env에 api_key 값 저장
+
+4. api를 사용하는 곳에 'api_key' = api_key 로 사용
+
+```python
+import os
+from dotenv import laod_dotenv
+
+load_dotenv()
+api_key = os.getenv('api_key')
+```
+
+```python
+# .env
+api_key = key값
+```
+
+
+
+# 상대 경로
+
+```python
+![이름](폴더명.asset/image.PNG)
+# /와 \ 구별하기! ///// 를 사용한다!
+```
