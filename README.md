@@ -13,11 +13,16 @@
 ## 🏫 과정
 
 - [Markdown](https://github.com/9776mk/TIL/blob/master/MARKDOWN)
+
 - [Git / GitHub/ Git Flow](https://github.com/9776mk/TIL/blob/master/Git)
+
 - [파이썬 프로그래밍](https://github.com/9776mk/TIL/tree/master/Python)
-- 알고리즘
-  
-  <details> 
+
+- [알고리즘](https://github.com/9776mk/TIL/tree/master/Algorithm)
+
+- [DB](https://github.com/9776mk/TIL/tree/master/DB)
+
+<details> 
   <summary>
   특강
   </summary> 

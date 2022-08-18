@@ -1,9 +1,11 @@
 # Database
+
 - 데이터베이스는 **체계화된 데이터의 모임**
 - 여러 사람이 공유하고 사용할 목적으로 통합 관리되는 정보의 집합
-- 
+- **몇 개의 자료 파일을 조직적으로 통합**하여 **자료 항목의 중복을 없애**고 **자료를 구조화하여 기억**시켜 놓은 **자료의 집합체**
 
 ## 장점들
+
 - 데이터 중복 최소화
 - 데이터 무결성(정확한 정보를 보장)
 - 데이터 일관성
@@ -12,63 +14,135 @@
 - 데이터 보안 유지
 
 # RDB
+
 ## 관계형 데이터베이스(RDB, Relational Database)
-  - 서로 관련된 데이터를 저장하고 접근할 수 있는 데이터베이스 유형
-  - 키(key)와 값(value)들의 간단한 관계를 표 형태로 정리한 데이터베이스
+
+- 서로 관련된 데이터를 저장하고 접근할 수 있는 데이터베이스 유형
+- 키(key)와 값(value)들의 간단한 관계를 표 형태로 정리한 데이터베이스
+
+| 고유 번호 | 이름  | 주소  | 나이  |
+| ----- | --- | --- | --- |
+| 1     | 홍길동 | 제주  | 20  |
+| 2     | 김길동 | 서울  | 30  |
+| 3     | 박길동 | 독도  | 40  |
 
 ### 스키마(schema)
+
 - 데이터에서 자료의 구조, 표현방법, 관계 등 전반적인 **명세를 기술**한 것
---- 그림 추가 ---
+
+| column  | datatype |
+| ------- | -------- |
+| id      | INT      |
+| name    | TEXT     |
+| address | TEXT     |
+| age     | INT      |
 
 ### 테이블(table)
+
 - 열(컬럼/필드)과 행(레코드/값)의 모델을 사용해 조직된 데이터 요소들의 집합
+- 스키마 -> 테이블
 
 #### 열
+
 - 각 열에 고유한 데이터 형식 지정
 
 #### 행
+
 - 실제 데이터가 저장되는 형태
+- 행, 로우, 레코드 등의 이름으로 불림
 
 #### 기본키(Primary Key)
+
 - 각 행(레코드)의 고유 값
 - 반드시 설정해야 하며, 데이터베이스 관리 및 관계 설정 시 주요하게 활용됨
 - 주민등록번호, 학번 같은 고유의 번호
 
 # RDBMS
+
 - 관계형 데이터베이스 관리 시스템
 - 관계형 모델을 기반으로 하는 데이터베이스 관리시스템을 의미
 
 ## SQLite
+
 - 서버 형태가 아닌 파일 형식, 응용 프로그램에 넣어서 사용하는 비교적 가벼운 데이터베이스
 - 임베디드 소프트웨어에도 많이 활용됨
 - 로컬에서 간단한 DB 구성을 할 수 있으며, 오픈소스 프로젝트이기 때문에 자유롭게 사용가능
 
+### SQLite Data Type
+
+1. Null
+2. INTEGER : 정수
+3. REAL : 부동 소수점 값
+4. TEXT
+5. BLOB : 입력된 그대로 정확히 저장된 데이터(별다른 타입 없이 그대로 저장)
+
 # SQL
+
 - Structured Query Language
-- 관계형 데이터베이스 관리시스템의 데이터 관리를 위해 설계된 프로그래밍 언어
+- 관계형 데이터베이스 관리시스템의 **데이터 관리**를 위해 **특수 목적으로 설계된 프로그래밍 언어**
 - 데이터베이스 스키마 생성 및 수정
 - 자료의 검색 및 관리
+- 데이터베이스 객체 접근 조정 관리
 
-표로 저장
+| 분류                                             | 개념                                   | 예시                                       |
+| ---------------------------------------------- | ------------------------------------ | ---------------------------------------- |
+| DDL  데이터 정의 언어<br/>(Data Definition Language)  | 관계형 데이터베이스 구조(테이블, 스키마)를 정의하기 위한 명령어 | CREATE<br/>DROP<br/>ALTER                |
+| DML 데이터 조작 언어<br/>(Data Manipulation Language) | 데이터를 저장, 조회, 수정, 삭제 등을 하기 위한 명령어     | INSERT<br/>SELECT<br/>UPDATE<br/>DELETE  |
+| DCL 데이터 제어 언어<br/>(Data Control Language)      | 데이터베이스 사용자의 권한 제어를 위해 사용하는 명령어       | GRANT<br/>REVOKE<br/>COMMIT<br/>ROLLBACK |
 
+- DML
+  
+  - INSERT : 새로운 데이터 삽입(추가)
+  
+  - SELECT : 저장되어있는 데이터 조회
+  
+  - UPDATE : 저장되어있는 데이터 갱신
+  
+  - DELETE : 저장되어있는 데이터 삭제
 
 # 실습
+
+## 데이터 베이스 생성하기
+
 ```sqlite
-. database
+$ sqlite3 tutorial.sqlite3
+-- '.'은 sqlite에서 활용되는 명령어
+.database
+```
+
+## csv 파일을 table로 만들기
+
+```sqlite
+.mode csv
+.import hellodb.csv examples
+.tables
+-- 결과 : examples
+```
+
+## SELECT
+
+```sqlite
+SELECT * FROM examples;
 ```
 
 ## 테이블 생성 및 삭제
+
+- 테이블 생성 및 삭제 statement
+  - CREATE TABLE : 데이터베이스에서 테이블 생성
+  - DROP TABLE : 데이터베이스에서 테이블 제거
+
 ### CREATE
 
-```SQL
+```sqlite
 -- classmate라는 이름의 테이블 생성
 CREATE TABLE classmates(
   id INTEGER PRIMARY KEY,
   name TEXT
 );
 
--- 테이블 목록 조회
+-- 테이블 생성 확인 목록 조회
 .tables
+-- classmates
 
 -- 특정 테이블 스키마 조회
 .schema classamtes
@@ -83,18 +157,10 @@ INSERT INTO classmates VALUES (2, '이동희');
 
 -- 테이블 삭제
 DROP TABLE classmates;
-
 ```
 
-CREATE TABLE classmates(
-  name TEXT, 
-  age INT, 
-  address TEXT
-);
-
-.schma classamtes
-
 ### 필드 제약 조건
+
 - NOT NULL : NULL 값 입력 금지
 - UNIQUE : 중복 값 입력 금지 (NULL 값은 중복 입력 가능
 - PRIMARY KEY : 테이블에서 반드시 하나, NOT NULL + UNIQUE
@@ -103,40 +169,85 @@ CREATE TABLE classmates(
 - DEFAULT : 기본 설정 값
 
 # CRUD
+
 - Create Read Update Delete
-## Create
-### INSERT
+  
+  ## Create
+  
+  ### INSERT
 - 테이블에 단일 행 삽입
-```SQL
-INSERT INTO 테이블_이름 (컬럼1, 컬럼2) VALUES (값1, 값2);
-```
-
+  
+  ```sqlite
+  INSERT INTO 테이블_이름 (컬럼1, 컬럼2) VALUES (값1, 값2);
+  ```
 - 테이블에 정의된 모든 컬럼에 맞춰 순서대로 입력
-```SQL
-INSERT INTO 테이블_이름 (컬럼1, 컬럼2) VALUES (값1, 값2);
-```
---- 추가 ---
-INSERT INTO classmates (name, age) VALUES ('홍길동', 23):
-SELECT * FROM classmates
-
--- 자체적으로 아이디를 부여하고 있었음
-SELECT rowid, * FROM classmates;
+  
+  ```sqlite
+  INSERT INTO 테이블_이름 VALUES (값1, 값2, 값3);
+  ```
+  
+  ```sqlite
+  INSERT INTO classmates (name, age) VALUES ('홍길동', 23):
+  SELECT * FROM classmates
+  ```
+  
+  ### rowid
+- SQLite에서 PRIMARY KEY가 없는 경우 자동으로 증가하는 PK 컬럼
+  
+  ```sqlite
+  -- 자체적으로 아이디를 부여하고 있었음
+  SELECT rowid, * FROM classmates;
+  ```
 
 ## READ
-### SELECT
-- 테이블에서 데이터를 조회
-- SELECT 문은 SQLite에서 
 
-### LIMIT
+### SELECT
+
+- 테이블에서 데이터를 조회
+- SELECT 문은 SQLite에서 가장 기본이 되는 문이며 다양한 절(clause)와 함께 사용
+  - ORDER BY, DISTINCT, WHERE, LIMIT, GROUP BY, ...
+    
+    ### LIMIT
+- 쿼리에서 반환되는 행 수를 제한
+- 특정 행부터 시작해서 조회하기 위해 OFFSET 키워드와 함께 사용하기도 함
+  
+  #### OFFSET : 처음부터 주어진 요소나 지점까지의 차이를 나타내는 정수형
+  
+  ex) 1. 문자열 'abcdef'에서 문자 'c'는 시작점 'a'에서 2의 OFFSET을 지님
 
 ### WHERE
 
+- 쿼리에서 반환된 행에 대한 특정 검색 조건을 지정
+
 ### SELECT DISTINCT
+
 - 조회 결과에서 중복 행 제거
+- DISTINCT 절은 SELECT 키워드 바로 뒤에 작성해야 함
 
 ## DELETE
+
+- 테이블에서 행을 제거
+  
+  ```sqlite
+  DELETE FROM 테이블이름 WHERE 조건;
+  ```
+  
+  ** 중복 불가능한(UNIQUE) 값인 rowid를 기준으로 삭제!**
+
 DELETE FROM classmates WHERE rowid=5;
 
 ## UPDATE
-UPDATE classmates SET address ='서울' WHERE rowid=5                                                   
-SELECT rowid, * FROM classmates;
+
+- 기존 행의 데이터를 수정
+- SET clause에서 테이블의 각 열에 대해 새로운 값을 설정
+  
+  ```sqlite
+  UPDATE 테이블이름 SET 컬럼=값1, 컬럼2=값2, .., WHERE 조건;
+  ```
+
+|     | 구문     | 예시                                               |
+| --- | ------ | ------------------------------------------------ |
+| C   | INSERT | INSERT INTO 테이블이름(컬럼1, 컬럼2, ...) VALUES (값1, 값2) |
+| R   | SELECT | SELECT * FROM 테이블이름 WHERE 조건;                    |
+| U   | UPDATE | UPDATE 테이블이름 SET 컬럼1=값1, 컬럼2=값2 WHERE 조건;        |
+| D   | DELETE | DELETE FROM  테이블이름 WHERE 조건;                     |
