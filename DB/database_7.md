@@ -33,7 +33,7 @@ python manage.py --version
 ```python
 python manage.py makemigrations
 
-python manage.py mirgrate
+python manage.py migrate
 ```
 
 ## django shell
