@@ -139,11 +139,11 @@ LIMIT 1;
 ```
 
 ```python
-Entry.objects.all()[n,m]
+Entry.objects.all()[5,10]
 ```
 
 ```SQL
-LIMIT N OFFSET M
+LIMIT 5 OFFSET 5
 ```
 
 ```python
