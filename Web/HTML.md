@@ -622,7 +622,7 @@ This is second paragraph of text.
 
 ### 6. <p>, <pre>
 
-- <p>는 하나의 문단을 나타냄.
+- \<p\>는 하나의 문단을 나타냄.
 
 ```html
 <p>첫 번째 문단입니다.
@@ -635,7 +635,7 @@ This is second paragraph of text.
   두 번째 문단입니다.</p>
 ```
 
-- <pre> 는 미리 서식을 지정한 텍스트를 나타내며, HTML에 작성한 내용 그대로 표현
+- \<pre\> 는 미리 서식을 지정한 텍스트를 나타내며, HTML에 작성한 내용 그대로 표현
 
 ```html
 <p>CSS로 글자 색을 바꾸는건 쉽습니다.</p>
@@ -665,3 +665,431 @@ body {
 ```
 
 - \<figure\>과 \<figcaption\>에 더해 id와 ARIA role과 aria-labelledby 특성을 조합하면 <pre>를 마치 이미지처럼 표현하면서 <figcaption>을 대체 설명으로 사용할 수 있음
+
+### 7. <menu>
+
+- 사용자가 수행하거나 하는 명령 묶음
+
+- label : 사용자에게 보여지는 메뉴의 이름
+
+```html
+<!-- A button, which displays a menu when clicked. -->
+<button type="menu" menu="dropdown-menu">
+  Dropdown
+</button>
+
+<menu type="context" id="dropdown-menu">
+  <menuitem label="Action">
+  <menuitem label="Another action">
+  <hr>
+  <menuitem label="Separated action">
+</menu>
+```
+
+### 8. <ol>, <ul>, <li>
+
+- \<ol\> : 정렬된 목록. 보통 숫자 목록으로 표현
+  
+  - reversed : 역순으로 배열 할지
+  
+  - start : 항목을 셀 때 시작할 수. 4부터 세고 싶으면 start="4"
+  
+  - type : 항목을 셀 때 사용할 카운터 유형
+    
+    - 'a'는 소문자 알파벳
+    
+    - 'A'는 대문자 알파벳
+    
+    - 'i'는 소문자 로마 숫자
+    
+    - 'I'는 대문자 로마 숫자
+    
+    - '1'은 숫자(기본값)
+
+- 간단한 예제
+
+```html
+<ol>
+  <li>first item</li>
+  <li>second item</li>
+  <li>third item</li>
+</ol>
+```
+
+- 로마 숫자로 표기
+
+```html
+<ol type="i">
+  <li>Introduction</li>
+  <li>List of Greivances</li>
+  <li>Conclusion</li>
+</ol> 
+```
+
+- start 특성 사용
+
+```html
+<p>Finishing places of contestants not in the winners’ circle:</p>
+
+<ol start="4">
+  <li>Speedwalk Stu</li>
+  <li>Saunterin’ Sam</li>
+  <li>Slowpoke Rodriguez</li>
+</ol>
+```
+
+- 중첩 목록
+
+```html
+<ol>
+  <li>first item</li>
+  <li>second item  <!-- closing </li> tag not here! -->
+    <ol>
+      <li>second item first subitem</li>
+      <li>second item second subitem</li>
+      <li>second item third subitem</li>
+    </ol>
+  </li>            <!-- Here's the closing </li> tag -->
+  <li>third item</li>
+</ol>
+```
+
+- 정렬 안의 비정렬 목록
+
+```html
+<ol>
+  <li>first item</li>
+  <li>second item      <!-- Look, the closing </li> tag is not placed here! -->
+    <ul>
+      <li>second item first subitem</li>
+      <li>second item second subitem</li>
+      <li>second item third subitem</li>
+    </ul>
+  </li>                <!-- Here is the closing </li> tag -->
+  <li>third item</li>
+</ol>
+```
+
+- <ul> : 요소는 정렬되지 않은 목록. 보통 불릿으로 표현
+
+- 간단한 예제
+
+```html
+<ul>
+  <li>first item</li>
+  <li>second item</li>
+  <li>third item</li>
+</ul>
+```
+
+- 중첩 목록
+
+```html
+<ul>
+  <li>first item</li>
+  <li>second item
+  <!-- Look, the closing </li> tag is not placed here! -->
+    <ul>
+      <li>second item first subitem</li>
+      <li>second item second subitem
+      <!-- Same for the second nested unordered list! -->
+        <ul>
+          <li>second item second subitem first sub-subitem</li>
+          <li>second item second subitem second sub-subitem</li>
+          <li>second item second subitem third sub-subitem</li>
+        </ul>
+      </li> <!-- Closing </li> tag for the li that
+                  contains the third unordered list -->
+      <li>second item third subitem</li>
+    </ul>
+  <!-- Here is the closing </li> tag -->
+  </li>
+  <li>third item</li>
+</ul>
+```
+
+- 비정렬 안의 정렬 목록
+
+```html
+<ul>
+  <li>first item</li>
+  <li>second item
+  <!-- Look, the closing </li> tag is not placed here! -->
+    <ol>
+      <li>second item first subitem</li>
+      <li>second item second subitem</li>
+      <li>second item third subitem</li>
+    </ol>
+  <!-- Here is the closing </li> tag -->
+  </li>
+  <li>third item</li>
+</ul>
+```
+
+- \<li\> : 목록의 항목. 반드시 정렬 목록, 비정렬 목록, 메뉴 안에 위치해야 함
+  
+  - 메뉴와 비정렬 목록에서는 불릿, 정렬 목록에서는 숫자나 문자를 사용한 오름차순 카운터
+
+- 정렬 목록
+
+```html
+<ol>
+    <li>first item</li>
+    <li>second item</li>
+    <li>third item</li>
+</ol>
+```
+
+- 사용자 지정 값을 가진 정렬 목록
+
+```html
+<ol type="I">
+    <li value="3">third item</li>
+    <li>fourth item</li>
+    <li>fifth item</li>
+</ol>
+```
+
+- 비정렬 목록
+
+```html
+<ul>
+    <li>first item</li>
+    <li>second item</li>
+    <li>third item</li>
+</ul>
+```
+
+## 인라인 텍스트 시멘틱
+
+- HTML 인라인 텍스트 시멘틱을 사용해서 단어, 줄, 혹은 아무 부분의 의미나 구조, 스타일을 정의할 수 있음
+
+### 1. <a>
+
+- 앵커 요소는 href 특성을 통해 다른 페이지나 같은 페이지의 어느 위치, 파일, 이메일 주소와 그 외 다른 URL로 연결할 수 있는 하이퍼링크를 만듦
+
+-  <a> 안의 콘텐츠는 링크 목적지의 설명을 나타내야 함
+
+- href : 하이퍼링크가 가리키는 URL
+
+- 절대 URL로 연결
+
+```html
+<a href="https://www.mozilla.com">
+  Mozilla
+</a>
+```
+
+- 상대 URL로 연결
+
+```html
+<a href="//example.com">Scheme-relative URL</a>
+<a href="/en-US/docs/Web/HTML">Origin-relative URL</a>
+<a href="./p">Directory-relative URL</a>
+```
+
+- 같은 페이지의 요소로 연결
+  
+  ```html
+  <!-- <a> 요소로 아래의 구획에 연결 -->
+  <p><a href="#Section_further_down">
+  아래 제목으로 건너뛰기
+  </a></p>
+  <!-- 링크가 향할 제목 -->
+  <h2 id="Section_further_down">아래의 제목</h2>
+  ```
+
+- 건너뛰기 링크
+  
+  - <body> 콘텐츠에서 가능함. 앞쪽에 배치하는 링크로 페이지의 주요 콘텐츠 시작 점을 가리킴.
+    
+    ```html
+    <body>
+    <a href="#content">내용으로 건너뛰기</a> 
+    <header>
+    …
+    </header>
+    <main id="content"> <!-- 여기로 건너뜀 -->
+    ```
+
+### 2. <abbr>
+
+- 준말 또는 머리 글자
+
+- 선택 속성인 title 사용 시 준말의 전체 뜻이나 설명 제공 가능
+
+- 준말임을 나타내기
+  
+  - 설명 없이, 단순히 특정 단어가 준말임을 나타내기
+    
+    ```html
+    <p>Using <abbr>HTML</abbr> is fun and easy!</p>
+    ```
+
+- 펼친 형태 보여주기
+  
+  - title 특성을 사용하여 준말과 머리글자를 펼친 원래 형태를 보여줄 수 있음
+    
+    ```html
+    <p>Ashok's joke made me <abbr title="Laugh Out Loud">LOL</abbr> big
+    time.</p>
+    ```
+
+- 준말 정의
+  
+  - <abbr>과 <dfn>을 사용하면 준말을 정식으로 정의 가능
+    
+    ```html
+    <p><dfn id="html"><abbr title="HyperText Markup Language">HTML</abbr>
+    </dfn> is a markup language used to create the semantics and structure
+    of a web page.</p>
+    <p>A <dfn id="spec">Specification</dfn>
+    (<abbr title="Specification">spec</abbr>) is a document that outlines in detail     how a technology or API is intended to function and how it is accessed.</p>
+    ```
+
+### 3. <b>
+
+- 독자의 주의를 요소의 콘텐츠로 끌기 위한 용도로 사용
+
+- 굵은 글씨체로 사용할 경우 CSS font-weight의 "bold"나 <strong> 요소를 사용
+  
+  - <strong> : 중요한 글
+  
+  - <em> : 약간의 강조가 필요한 글
+    
+    - 주로 기울임꼴로 표현됨. 기울임이 필요하기 위해서는 CSS font-sytle (en_US)
+      
+      ```html
+      <p>
+      과거에 <em>block-level</em>이라 불렸던
+      콘텐츠는 HTML 5부터 <em>flow</em> 콘텐츠라고
+      말합니다.
+      </p>
+      ```
+    
+    - 다른 기울임 꼴
+      
+      - <cite> : 저작물(책, 연극, 음악 등등)의 제목
+        
+        ```html
+        <p>More information can be found in <cite>[ISO-0000]</cite>.</p>
+        ```
+      
+      - <i> : 학명 등 과학적인 이름, 다른 언어의 단어 등, 주변과 다른 톤을 가진 텍스트
+  
+  - <mark> : 관련성이 있는 글
+
+```html
+<p>
+  This article describes several <b class="keywords">text-level</b> elements.
+  It explains their usage in an <b class="keywords">HTML</b> document.
+</p>
+Keywords are displayed with the default style of the <b>element, likely in bold</b>.
+```
+
+### 4. <br>
+
+- 텍스트 안에 줄바꿈을 생성
+
+- 주소나 시조 등 줄의 구분이 중요한 내용을 작성할 때 사용
+
+- 줄 간격을 늘리기 위해서는 CSS line-height_(en-US) 속성 사용
+  
+  ```html
+  Mozilla Foundation<br>
+  1981 Landings Drive<br>
+  Building K<br>
+  Mountain View, CA 94043-0801<br>
+  USA
+  ```
+
+### 5. <q>
+
+- 둘러싼 텍스트가 짧은 인용문
+
+- 줄 바꿈이 없는 짧은 경우에 적합
+
+- 긴 인용문은 <blockquote>
+
+```html
+<p>Mozilla 재단의 웹사이트에 따르면,
+  <q
+  cite="https://www.mozilla.org/en-US/about/history/details/">Firefox 1.0
+  은 2004년 처음 공개되어 큰 성공을 거두었습니다.</q></p>
+```
+
+### 6. <s>
+- 글자에 취소선, 즉 글자를 가로지르는 선을 그림
+```html
+<s>Today's Special: Salmon</s> SOLD OUT<br>
+```
+
+### 7. <span>
+- 아무 뜻이 없음
+- 스타일 혹은 어떤 특성의 값을 서로 공유하는 요소로 묶을 때 사용가능
+- <div>는 블록 레벨 요소, <span>은 인라인 요소
+```html
+<p><span>Some text</span></p>
+```
+
+## 이미지 & 멀티미디어
+- HTML은 사진, 오디오, 비디오 등 다양한 멀티미디어 리소스를 지원
+### 1. <map>
+- <area> 요소와 함께 이미지 맵(클릭 가능한 링크 영역)을 정의할 때 사용
+- name : 맵을 참조할 때 사용할 수 있는 이름
+	- 반드시 존재, 공백 문자 포함하면 안됨, 모든 <map>에서 유일, id 특성이 존재한 경우 name과 값이 동일해야 함
+    
+```html
+<map name="primary">
+  <area shape="circle" coords="75,75,75" href="left.html">
+  <area shape="circle" coords="275,75,75" href="right.html">
+</map>
+<img usemap="#primary" src="https://placehold.it/350x150" alt="350 x 150 pic">
+```
+    
+### 2. <area>
+- 이미지의 핫스팟 영역을 정의하고, 하이퍼링크를 추가할 수 있음
+- <map>요소 안에서만 사용할 수 있음
+	- shape : 핫스팟의 모양. rect, circle, poly
+    - coords : 핫스팟 영역을 지정하는 일련의 좌표. 값의 수와 의미는 shape 특성에 따라 달라짐
+    - href : <area>의 하이퍼링크 대상. 생략할 경우 하이퍼링크를 나타내지 않음.
+    - alt : 이미지를 출력하지 않는 브라우저에서 대신 표시할 대안 텍스트. href 특성이 존재할 경우 필수
+
+```html
+<map name="primary">
+  <area shape="circle" coords="200,250,25" href="another.htm" />
+  <area shape="default" nohref />
+</map>
+<img usemap="#primary" src="http://placehold.it/350x150" alt="350 x 150 pic">
+```
+
+
+### 3. <img>, <audio>, <video>
+- 이미지, 오디오, 비디오 파일 삽입
+```html
+<a href="https://developer.mozilla.org">
+     <img src="favicon144.png" alt="Visit the MDN site">
+   </a>
+```
+```html
+<!-- Simple audio playback -->
+<audio
+  src="AudioTest.ogg"
+  autoplay>
+  Your browser does not support the <code>audio</code> element.
+</audio>
+```
+```html
+<!-- Simple video example -->
+<video src="videofile.ogg" autoplay poster="posterimage.jpg">
+  Sorry, your browser doesn't support embedded videos,
+  but don't worry, you can <a href="videofile.ogg">download it</a>
+  and watch it with your favorite video player!
+</video>
+
+<!-- Video with subtitles -->
+<video src="foo.ogg">
+  <track kind="subtitles" src="foo.en.vtt" srclang="en" label="English">
+  <track kind="subtitles" src="foo.sv.vtt" srclang="sv" label="Svenska">
+</video>
+```
