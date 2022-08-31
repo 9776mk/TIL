@@ -22,7 +22,7 @@
 
 - [DB](https://github.com/9776mk/TIL/tree/master/DB)
 
-- Web
+- [Web](https://github.com/9776mk/TIL/tree/master/Web)
 
 <details> 
   <summary>

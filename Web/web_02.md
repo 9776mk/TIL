@@ -238,17 +238,63 @@ Block Direction
 
 ![](web_02.assets/3.PNG)
 
-## Box model 구성(margin/padding)
+### Box model 구성(padding)
 
-- 
+![](web_02.assets/4.PNG)
+
+### Box model 구성(margin/padding)
+
+![](web_02.assets/5.PNG)
+
+### Box model 구성(border)
+
+![](web_02.assets/6.PNG)
 
 - border : 1px dashed black; : border 전체 
+
+### box sizing
+
+![](web_02.assets/7.PNG)
+
+- 100px의 박스를 원했지만 padding값과 경계선 값까지 해서 142px 크기의 박스가 그려짐!
+
+- 기본적으로 모든 요소의 box-sizing은 content-box
+  
+  - padding을 제외한 순수 contents 영역만을 box로 지정
+
+- 다만 우리가 일반적으로 영역을 볼 때는 border까지의 너비를 100px로 보기를 원함
+  
+  - 그런 경우 box-sizing을 border-box로 설정
+
+```html
+<!-- content-box -->
+.box-sizing{
+  width: 100px;
+  margin: 1opx auto;
+  padding: 20px;
+  border: 1px solid black; 
+  box-sizing: content-box;
+}
+
+<!
+.box-sizing{
+  width: 100px;
+  margin: 1opx auto;
+  padding: 20px;
+  border: 1px solid black; 
+  box-sizing: border-box;
+}
+```
 
 ## CSS Display
 
 - CSS 원칙 2
+  
+  - 모든 요소는 네모(박스모델)이고, 좌측상단에 배치
+  
+  - **display에 따라 크기와 배치가 달라진다.**
 
-- 대표적으로 활용되는 display
+### 대표적으로 활용되는 display
 
 - display : block
   
@@ -264,8 +310,34 @@ Block Direction
   
   - 줄 바꿈이 일어나지 않는 행의 일부 요소
   
-  - content 너비 만큼
+  - content 너비 만큼 가로 폭을 차지
+  
+  - width, height, maring-top, margin-bottome을 지정할 수 없음
+  
+  - 상하 여백은 line-height로 지정
+
+#### block
+
+- block의 기본 너비는 가질 수 있는 너비의 100%
+
+- 너비를 가질 수 없다면 margin이 자동으로 부여됨
+
+#### inline
+
+- inline의 기본 너비는 컨텐츠 영역만큼
+  
+  ![](web_02.assets/8.PNG)
 
 - display : inline-block
   
+  - block과 inline 레벨 요소의 특징을 모두 가짐
+  
+  - inline처럼 한 줄에 표시할 수 있고, block처럼 width, height, margin 속성을 모두 지정할 수 있음
+  
   - block 옆에 inline이 들어올 수 있게 바꿔줌
+
+- display: none
+  
+  - 해당 요소를 화면에 표시하지 않고, 공간조차 부여되지 않음
+  
+  - 이와 비슷한 visibility: hidden은 해당 요소가 공간은 차지하나 화면에 표시만 하지 않음

@@ -1,278 +1,4 @@
-# 웹
-
-- 웹 사이트 구성 요소
-  ![](web_01.assets/1.PNG)
-
-## 웹 사이트와 브라우저
-
-- 웹 사이트는 부라우저를 통해 동작함
-- 브라우저마다 동작이 약간씩 달라서 문제가 생긱는 경우가 많음(파편화)
-- 해결책으로 웹 표준 등장
-
-## 웹 표준
-
-- 웹에서 표준적으로 사용되는 기술이나 규칙
-
-- 어떤 브라우저든 웹 페이지가 동일하게 보이도록 함(크로스 브라우징)
-
-- 브라우저별 호환성 체크 사이트
-  
-  [](https://caniuse.com/)
-
-# 개발 환경 설정
-
-## Visual Studio Code
-
-### HTML/CSS 코드 작성을 위한 Visual Studio Cod 추천 확장 프로그램
-
-1. Open in browser
-   
-   - visual studio code내에서 브라우저를 오픈하는 확장 프로그램
-   
-   - **Alt + B**  : 기본 브라우저에서 현재 html 파일을 열기
-   
-   - **Shift + Alt + B**  : 다른 브라우저를 선택하면 해당 브라우저를 통해 파일을 열 수 있음
-   
-   - 해당 파일에 마우스 우클릭 
-
-2- Auto Rename Tag
-
-- html에서 태그명 변경시 자동으로 닫힌 태그명까지 바꿔 줌
-3. Auto Close Tag
-   
-   - 자동으로 끝 tag를 만들어줌.
-
-4. Intellisense for CSS class names in HTML
-   
-   - 작업 공간에 있는 정의를 기반으로 HTML Class 속성에 대한 CSS Class 이름을 자동 완성
-
-5. HTML CSS support 
-   
-   - html 요소의 class에서 css 선택자 요소를 쓸때 자동 완성 기능을 지원.
-
-## 크롬 개발자 도구
-
-- 웹 브라우저 크롬에서 제공하는 개발과 관련된 다양한 기능을 제공
-
-- 주요 기능
-  
-  - Elements - DOM 탐색 및 CSS 확인 및 변경
-    
-    - styles - 요소에 적용된 CSS 확인
-    
-    - Computed - 스타일이 계산된 최종 결과
-    
-    - Event Listeners - 해당 요소에 적용된 이벤트(JS)
-  
-  - Sources, Network, Performance, Application, Security, Audits 등
-
-# HTML 기초
-
-## HTML?
-
-- HTML : <u>Hyper Text</u>  +  <u>Markup Language</u>
-  
-  - Hyper Text?
-    
-    - 참조(하이퍼링크)를 통해 사용자가 한 문서에서 다른 문서로 즉시 접근할 수 있는 텍스트
-  
-  - Markup Language
-    
-    - 태그 등을 이용하여 문서나 데이터의 구조를 명시하는 언어
-      
-      - HTML, Markdown 등등
-
-- HTML은 **웹 페이지를 작성(구조화)하기 위한 언어**
-
-- .html (HTML 파일)
-
-# HTML 기본 구조
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
-
-</body>
-<html>
-```
-
-- html : 문서의 최상위(root) 요소
-
-- head : 문서 메타데이터 요소
-  
-  - 메타 데이터 : 사진의 메타 데이터 셔터스피드, 노출, 조리개 값, 장소, 시간, 크기 ...                         정보의 정보
-  
-  - 문서 제목, 인코딩, 스타일, 외부 파일 로딩 등
-  
-  - 일반적으로 브라우저에 나타나지 않는 내용
-
-- body : 문서 본문 요소
-  
-  - 실제 화면 구성과 관련된 내용
-
-## head 예시
-
-- \<title\> : 브라우저 상단 타이틀
-- \<meta\> : 문서 레벨 메타데이터 요소
-- \<link\> : 외부 리소스 연결 요소(CSS 파일, favicon 등)
-- \<script\> : 스크립트 요소 (JavaScript 파일/코드)
-- \<style\> : CSS 직접 작성
-
-```html
-  <head>
-    <title>HTML 수업</title>
-    <meta charset="UTF-8">
-    <link href="style.css" rel="stylesheet">
-    <script src="javascripts.js"></script>
-    <style>
-      p {
-        color: black;
-      }
-    </style>
-  </head>
-```
-
-### Open Graph Portocol
-
-- 메타 데이터를 표현하는 새로운 규약
-  
-  - HTML 문서의 메타 데이터를 통해 문서의 정보를 전달
-  - 메타정보에 해당하는 제목 설명 등을 쓸 수 있도록 정의
-  - 카카오톡에서 링크를 보낼 때 뜨는 미리보기 기능
-    ![](web_01.assets/2.PNG)
-
-## 요소(element)
-
-![](web_01.assets/3.PNG)
-
-- HTML 요소는 태그(시작 태그와 종료 태그)와 내용(태그 사이에 위치)으로 구성
-  - 요소는 태그로 컨텐츠(내용)를 감싸는 것. 그 정보의 성격과 의미를 정의
-  - 내용이 없는 태그들도 존재(닫는 태그가 없음)
-    - br : 행바꿈
-    - hr : 수평선 그리기
-    - img : 이미지 넣기
-    - input : 사용자의 정보를 받음
-    - link : 링크
-    - meta : 메타 데이터
-- 요소는 중첩(nested)될 수 있음
-  - 요소의 중첩을 통해 하나의 문서를 구조화
-  - 여는 태그와 닫는 태그의 쌍을 잘 확인할 것!
-    - 오류를 반환하는 것이 아닌 레이아웃이 깨진 상태로 출력되므로, 디버깅이 힘들 수 있음
-
-## 속성(attribute)
-
-![](web_01.assets/4.PNG)
-
-- 태그별로 사용할 수 있는 속성은 다름.
-- 속성을 통해 태그의 부가적인 정보를 설정할 수 있음
-- 요소는 속성을 가질 수 있으며, 경로나 크기와 같은 추가적인 정보를 제공
-- 요소의 시작 태그에 작성하며 보통 이름과 값이 하나의 쌍으로 존재
-- 태그와 상관없이 사용 가능한 속성(HTML Global Attribute)들도 있음
-
-### HTML Global Attribute
-
-- 모든 HTML 요소가 공통으로 사용할 수 있는 대표적인 속성(몇몇 요소에는 아무 효과가 없을 수 있음)
-  - id : 문서 전체에서 유일한 고유 식별자 지정
-  - class : 공백으로 구분된 해당 요소의 클래스의 목록(CSS, JS에서 요소를 선택하거나 접근)
-  - data-* : 페이지에 개인 사용자 정의 데이터를 저장하기 위해 사용
-  - style : inline 스타일
-  - title : 요소에 대한 추가 정보 지정
-  - tabindex : 요소의 탭 순서
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Documents</title>
-</head>
-<body>
-  <!-- 이것은 주석입니다. -->
-  <h1>나의 첫번째 HTML</h1>
-  <p>이것은 본문입니다.</p>
-  <span>이것은 인라인요소</span>
-  <a href="https://www.naver.com">네이버로 이동!!</a>
-</body>
-</html>
-```
-
-## 텍스트로 작성된 코드가 어떻게 웹 사이트가 되는 걸까?
-
-### 렌더링(Rendering)
-
-- 웹 사이트 코드를 사용자가 보게 되는 웹 사이트로 바꾸는 과정
-
-### DOM(Document Object Model) 트리
-
-![](web_01.assets/5.PNG)
-
-- 텍스트 파일인 HTML 문서를 브라우저에서 렌더링 하기위한 구조
-  - HTML 문서에 대한 모델을 구성함
-  - HTML 문서 내의 각 요소에 접근 / 수정에 필요한 프로퍼티와 메서드를 제공함
-
-## 인라인 / 블록 요소
-
-- HTML 요소는 크게 인라인 / 블록 요소로 나눔
-- 인라인 요소는 글자처럼 취급
-- 블록 요소는 한 줄 모드 사용
-
-### 텍스트 요소
-
-| 태그                            | 설명                                           |
-| ----------------------------- | -------------------------------------------- |
-| <a></a>                       | href 속성을 활용하여 다른 URL로 연결하는 하이퍼링크 생성          |
-| <b></b><br/><strong></strong> | 굵은 글씨 요소<br/>중요한 강조하고자 하는 요소( 보통 굵은 글씨로 표현)  |
-| <i></i><br/><em></em>         | 기울임 글씨 요소<br/>중요한 강조하고자 하는 요소(보통 기울임 글씨로 표현) |
-| <br>                          | 텍스트 내에 줄 바꿈 생성                               |
-| \<img\>                       | src 속성을 활용하여 이미지 표현,<br/>alt 속성을 활용하여 대체 텍스트 |
-| <span></span>                 | 의미 없는 인라인 컨테이너                               |
-
-![](web_01.assets/6.PNG)
-
-### 그룹 컨텐츠
-
-| 태그                        | 설명                                                    |
-| ------------------------- | ----------------------------------------------------- |
-| <p></p>                   | 하나의 문단(paragraph)                                     |
-| <hr>                      | 문단 레벨 요소에서의 주제의 분리를 의미하며 수평선으로 표현됨(A Horizontal Rule) |
-| <ol></ol><br/><ul></ul>   | 순서가 있는 리스트(ordered)<br/>순서가 없는 리스트(unordered)         |
-| <pre></pre>               | HTML에 작성한 내용을 그대로 표현.<br/>보통 고정폭 글꼴이 사용되고 공백문자를 유지    |
-| <blockquote></blockquote> | 텍스트가 긴 인용문<br/>주로 들여쓰기를 한 것으로 표현됨                     |
-| <div></div>               | 의미 없는 블록 레벨 컨테이너                                      |
-
-![](web_01.assets/7.PNG)
-
 # CSS
-
-- CSS : Cascading Style Sheets
-- **스타일을 지정하기 위한 언어**
-- 선택하고, 스타일을 지정한다.
-
-```css
-h1 {
-    color: blue;
-    font-size: 15px;
-}
-```
-
-![](web_01.assets/8.PNG)
-
-- CSS 구문은 선택자를 통해 스타일을 지정할 HTML 요소를 선택
-
-- 중괄호 안에서는 속성과 값, 하나의 쌍으로 이루어진 선언을 진행
-
-- 각 쌍은 선택한 요소의 속성, 속성에 부여할 값을 의미
-  
-  - 속성(Property) : 어떤 스타일 기능을 변경할지 결정
-  
-  - 값(Value) : 어떻게 스타일 기능을 변경할지 결정
-
-
 
 ## CSS 정의 방법
 
@@ -281,8 +7,6 @@ h1 {
 - 내부 참조(embedding) - <style>
 
 - 외부 참조(link file) - 분리된 CSS 파일
-
-
 
 ## CSS 기초 선택자
 
@@ -301,3 +25,248 @@ h1 {
   - 일반적으로 하나의 문서에 한 번만 사용
   
   - 여러 번 사용해도 동작하지만, 단일 id를 사용하는 것을 권장
+
+## 1. 박스 모델
+
+- CSS가 표시하는 모든 것은 박스
+
+### 1.1 콘텐츠 및 크기
+
+- 박스는 display값, 설정된 치수 및 반스 안에 있는 내용에 따라 다르게 동작
+
+- 오버플로 : 콘텐츠가 박스에 비해 너무 큰 경우
+  
+  - `overflow` 속성을 사용해 요소가 오버플로 콘텐츠를 처리하는 방법 관리
+
+### 1.2 박스 모델의 영역
+
+![](CSS.assets/1.PNG)
+
+- 콘텐츠 박스
+  
+  - 콘텐츠가 있는 영역
+  
+  - 부모 컨텐츠의 크기 제어 가능 -> 일반적으로 가장 다양한 크기의 영역도 제어
+
+- 패딩 박스
+  
+  - 콘텐츠 박스를 둘러싸고 있음
+  
+  - `padding`속성에 의해 생성된 공간
+  
+  - 박스에 `overflow: auto` 또는 `overflow: scroll`과 같은 오버플로 규칙이 설정되어 있으면 스크롤바도 이 공간을 차지
+
+- 테두리 박스
+  
+  - 패딩 박스를 둘러싸고 있고 `border`값으로 채움
+  
+  - 박스의 경계 테두리 가장자리는 시각적으로 볼 수 있는 영역의 한계
+  
+  - `border` 속성은 요소를 시각적으로 프레임하는 데 사용
+
+- 여백 박스
+  
+  - 박스의 `margin`규칙에 의해 정의된 박스 주변의 공간
+
+### 1.3 박스 모델 제어
+
+- 에이전트 스타일
+  
+  - <div> : 요소의 기본 `display`값은 `block`
+    
+    - `block`항목은 기본적으로 사용 가능한 inline space를 채움
+  
+  - <li> : 요소의 기본 `display`값은 `list-item`
+  
+  - <span> : 요소의 기본 `display`값은 `inline`
+    
+    - `inline`항목 및 `inline-block`요소는 콘텐츠만큼만 커짐
+
+- 박스 크기
+  
+  - box-sizing : 박스 크기 계산
+    
+    - box-sizing: content-box;
+      
+      - `width` 및 `height`가 **content box**에 적용
+      
+      - 추가적으로 `padding` 및 `border`를 설정하면 콘텐츠 박스의 크기에 추가
+    
+    - box-sizing: border-box;
+      
+      - 전체 크기를 일반적으로 사람이 원하는 크기로 지정할 수 있음
+
+```css
+.my-box {
+  box-sizing: border-box;
+    width: 200px;
+    border: 10px solid;
+    padding: 20px;
+}
+```
+
+```css
+<!-- 모든 박스를 border-box로 만들어주는 코드-->
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
+
+## 2. Selectors(선택기)
+
+- 요소에 CSS를 적용하기 위해 선택해야 함
+  ![](CSS.assets/2.PNG)
+
+- `my-css-rule`클래스가 있는 모든 요소를 찾는 `.my-css-rule` 중괄호 안에 3개의 선언
+  
+  - Declaration(선언) : Selector(선택자)와 일지하는 요소에 스타일을 적용하는 Property(속성) 및 beige(값)의 쌍
+
+- 원하는 만큼 많은 선언과 선택기를 가질 수 있음
+
+### 2.1 단순 선택기
+
+#### 2.1.1 범용 선택기
+
+```css
+* {
+color: hotpink;
+}
+```
+
+- 페이즈의 모든 HTML 요소가 hotpink 텍스트를 갖도록 함
+
+#### 2.1.2 유형 선택기
+
+```css
+section {
+  padding: 2em;
+}
+```
+
+모든 `<section>` 요소가 모든 면에 `padding`의 `2em`을 갖게 함
+
+#### 2.1.3 클래스 선택기
+
+- HTML은 `class` 속성에 하나 이상의 정의된 항목을 가질 수 있음
+
+```html
+<div class="my-class"></div>
+<button class="my-class"></button>
+<p class="my-class"></p>
+```
+
+```css
+.my-class {
+  color: red;
+}
+```
+
+- 클래스가 적용된 모든 요소는 빨간색으로 표시됨
+
+- `.`이 CSS에만 있는 것 기억하기!
+
+- `.my-class`의 클래스가 있는 HTML 요소가 여러개 있더라도 규칙은 적용됨
+
+```html
+<div class="my-class another-class some-other-class"></div>
+```
+
+- 숫자로 클래스를 시작할 수는 없음!
+
+#### 2.1.4 ID 선택기
+
+- `id` 속성이 있는 HTML 요소는 해당 ID 값을 가진 유일한 요소여야 함
+
+```css
+#rad {
+  border: 1px solid blue;
+}
+```
+
+```html
+<div id="rad"></div>
+```
+
+- `id`가 `rad`인 HTML 요소에 파란색 테두리를 적용
+
+#### 2.1.5 속성 선택기
+
+- 특정 HTML 속성이 HTML 속성에 대한 특정 값이 있는 요소를 찾을 수 있음
+
+- 대괄호 `[]`로 묶어 CSS가 속성을 찾도록 지시
+
+```css
+[data-type='primary'] {
+  color: red;
+}
+```
+
+- `primary` 값을 가진 `data-type` 속성이 잇는 모든 요소를 찾음
+
+```html
+<div data-type="primary"></div>
+```
+
+- `data-type`의 특정 값을 찾는 대신 값에 관계없이 속성이 있는 요소를 찾을 수도 있음
+
+```css
+[data-type] {
+  color: red;
+}
+```
+
+```html
+<div data-type="primary"></div>
+<div data-type="secondary"></div>
+```
+
+- `s` 연산자를 추가하여 대소문자를 구분하는 속성 선택기 사용 가능
+
+- 대소문자 연선자와 함께 속성 값 내의 문자열 부분과 일치하는 연산자에 액세스 가능
+
+#### 2.1.6 그룹화 선택기
+
+- 여러 선택기를 쉼표로 구분하여 그룹화할 수 있음
+
+```css
+strong,
+em,
+.my-class,
+[lang] {
+  color: re
+```
+
+- 색상 변경을 `<strong>` 요소와 `<em>` 요소 모두로 확장
+
+- `.my-class`라는 클래스와 `lang` 속성이 있는 요소로 확장
+
+## The cascade(캐스케이드)
+
+- CSS는 Cascading Stylesheets의 약자
+
+- 캐스케이드는 여러 CSS 규칙이 HTML 요소에 적용되는 충돌을 해결하기 위한 알고리즘
+
+```css
+<!-- 버튼의 텍스트가 blue가 됨 -->
+button {
+  color: red;
+}
+
+button {
+  color: blue;
+}
+```
+
+### 알고리즘 단계
+
+1. **위치 및 표시 순서** : CSS 규칙이 표시되는 순서
+
+2. **특이성** : 가장 일치하는 CSS 선택자를 결정하는 알고리즘
+
+3. **오리진**: CSS가 나타나는 순서와 출처, 브라우저 스타일인지, 브라우저 확장 프로그램의 CSS인지, 작성한 CSS인지 여부
+
+4. **중요도**: 몇몇 CSS 규칙은 특히 `!important` 규칙 유형의 경우 다른 규칙보다 가중치가 더 높음
+
+![](CSS.assets/3.PNG)
