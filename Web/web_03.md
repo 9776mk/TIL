@@ -120,7 +120,7 @@
   
   - flexbox 레이아웃을 형성하는 가장 기본적이 모델
   
-  - **display속성을 felx 혹은 inline-flex로 지정**
+  - **display속성을 flex 혹은 inline-flex로 지정**
   
   - Flex Item들이 놓여있는 영역
 

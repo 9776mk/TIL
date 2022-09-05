@@ -149,8 +149,6 @@ api_key = os.getenv('api_key')
 api_key = key값
 ```
 
-
-
 # 상대 경로
 
 ```python
