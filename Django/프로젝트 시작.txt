@@ -1,0 +1,52 @@
+1. 가상환경 생성 실행
+python -m venv venv
+. venv/Scripts/activate
+2. django LTS 버전 설치
+pip install django==3.2.13
+3. django 프로젝트 생성
+django-admin startproject django_0922
+4. 앱 생성
+주의할 점 : 커맨드를 manage.py가 있는 경로에서 실행해야 한다.
+cd django_0922
+python manage.py startapp practice
+ls
+5. 앱 등록
+vs code 키기
+settings.py -> INSTALLED_APPS => 'practice',
+6. 서버 실행 테스트
+python manage.py runserver
+
+7. 앱 URL VIEW TEMPLATE
+7.1
+urls.py => app[training]/views.py 불러오기
+from practice import views
+path('index/', views.index),
+
+7.2
+practice/views.py
+#HTTP : 요청(request)을 하면 무언가를 응답(response)하는 방식
+# 인덱스 함수 선언 정의
+def index(request):
+return render(request, "index.html")
+
+7.3
+practice /templates 폴더 생성후 index.html 파일 생성
+html에서 <h1> hello </h1> 삽입
+
+7.4 python mange.py runserver
+localhost:8000/index로 확인
+
+템플릿 변수 연습 - 파이썬에서 쓰는 문법을 html에서 쓰기 위함
+urls.py
+
+
+views.py
+def tmeplate(request):
+ _number = 1
+ context = {
+	"number" = _number
+}
+
+return render(request, "template.html", context)
+=> templates폴더에 template.html 생성
+
