@@ -1,71 +1,69 @@
-## APP URL mapping
+## Namespace
 
-- 앱이 많아졌을 때 urls.py를 각 app에 매핑하는 방법을 이해하기
+- URL namespace를 사용하면 서로 다른 앱에서 동일한 URL 이름을 사용하는
+  경우에도 이름이 지정된 URL을 고유하게 사용 할 수 있음
 
-- 두번째 app인 pages를 생성 및 등록 하고 진행
+- app_name attribute를 작성해 URL namespace를 설정
 
-- app의 view 함수가 많아지면서 사용하는 path() 또한 많아지고, app 또한 더 많이 작성되기 때문에 프로젝트의 urls.py에서 모두 관리하는 것은 프로젝트 유지보수에 좋지 않음
+![](django_05.assets/1.PNG)
 
-### App URL mapping
+### URL tag 변화
 
-- 각 앱의 view 함수를 다른 이름으로 import할 수 있음
+![](django_05.assets/2.PNG)
 
-- 아래와 같은 방법도 가능하지만 더 좋은 방법이 있음
+![](django_05.assets/3.PNG)
 
-![](django_04.assets/1.PNG)
+### URL 참조
 
-- 하나의 프로젝트의 여러 앱이 존재한다면, 각각의 앱 안에 urls.py을 만들고 프로젝트 urls.py에서 각 앱의 urls.py 파일로 URL 매핑을 위탁할 수 있음
+- ":" 연사자를 사용하여 지정
+  
+  - 예를 들어, app_name이 articles이고 URL name이 index인 주소 참조는 articles:index가 됨
 
-- 각각의 app 폴더 안에 urls.py를 작성하고 다음과 같이 수정 진행
-  ![](django_04.assets/2.PNG)
+## Naming URL patterns
 
-- urlpattern은 언제든지 다른 URLconf 모듈을 포함(include)할 수 있음
+### Naming URL patterns의 필요성
 
-- include되는 앱의 url.py에 urlpatterns가 작성되어 있지 않다면 에러가 발생. 예를 들어, pages 앱의 urlpatterns가 빈 리스트라도 작성되어 있어야 함
-  ![](django_04.assets/3.PNG)
+- 예를 들어 "index/"의 문자열 주소를 "new-index/"로 바꿔야 한다고 가정하면
+  
+  - "index/" 주소를 사용한 모든 곳을 찾아서 변경해야 함!
 
-- 메인페이지의 주소가 변경됨
+### Naming URL patterns
 
-- http://127.0.0.1:8000/index/ → http://127.0.0.1:8000/articles/index
+- 링크에 URL을 직접 작성하는 것이 아니라 “path()” 함수의 name 인자를 정의해서 사용
 
-### include()
+- DTL의 Tag 중 하나인 URL 태그를 사용해서 “path()” 함수에 작성한 name을 사용할 수 있음
 
-- 다른 URLconf(app1/urls.py)들을 참조할 수 있도록 돕는 함수
+- 이를 통해 URL 설정에 정의된 특정한 경로들의 의존성을 제거할 수 있음
 
-- 함수 include()를 만나게 되면 URL의 그 시점까지 일치하는 부분을 잘라내고, 남은 문자열 부분을 후속 처리를 위해 include된 URLconf로 전달
+- Django는 URL에 이름을 지정하는 방법을 제공함으로써 view 함수와 템플릿에서 특정 주소를 쉽게 참조할 수 있도록 도움
 
-### URL 구조의 변화
+![](django_05.assets/4.PNG)
 
-- 앱의 URL을 project의 urls.py에서 관리
-  ![](django_04.assets/4.PNG)
+### Built-in tag - "url"
 
-- 복수 개의 앱의 URL을 project의 urls.py에서 관리
-  ![](django_04.assets/5.PNG)
+![](django_05.assets/5.PNG)
 
-- 각각의 앱에서 URL을 관리
-  ![](django_04.assets/6.PNG)
+- 주어진 URL 패턴 이름 및 선택적 매개 변수와 일치하는 절대 경로 주소를 반환
 
-## Template namespace
+- 템플릿에 URL을 하드 코딩하지 않고도 DRY 원칙을 위반하지 않으면서 `링크를 출력하는 방법
+  ![](django_05.assets/6.PNG)
 
-- Django는 기본적으로 app_name/templates/ 경로에 있는 templates 파일들만 찾을 수 있으며, settings.py의 INSTALLED_APPS에 작성한 app 순서로 template을 검색 후 렌더링 함
+- [참고] DRY 원칙
+  
+  - Don't Repeat Yourself 약어
+  
+  - 소스 코드에서 동일한 코드를 반복하지 말자는 의미
 
-- 바로 이 속성 값이 해당 경로를 활성화하고 있음
-  ![](django_04.assets/7.PNG)
+## Model
 
-### 디렉토리 생성을 통해 물리적인 이름공간 구분
+- Django는 model을 통해 데이터에 접근하고 조작
 
-- Django templates의 기본 경로에 app과 같은 이름의 폴더를 생성해 폴더 구조를 app_name/templates/app_name/ 형태로 변경
+- 사용하는 데이터들의 필수적인 필드들과 동작들을 포함
 
-- Django templates의 기본 경로 자체를 변경할 수는 없기 때문에 물리적으로 이름 공간을 만드는 것
-  ![](django_04.assets/8.PNG)
+- 저장된 데이터베이스의 구조 (layout)
 
-### 템플릿 경로 변경
-
-- 폴더 구조 변경 후 변경된 경로로 해당하는 모든 부분을 수정하기
-  ![](django_04.assets/9.PNG)
-
-### Template namespace를 고려해야 할까?
-
-- 만약 단일 앱으로만 이루어진 프로젝트라면 상관없음
-
-- 여러 앱이 되었을 때에도 템플릿 파일 이름이 겹치지 않게 하면 되지만, 앱이 많아지면 대부분은 같은 이름의 템플릿 파일이 존재하기 마련
+- 일반적으로 각각의 모델은 하나의 데이터베이스 테이블에 매핑(mapping)
+  
+  - 모델 클래스 1개 == 데이터베이스 테이블 1개
+  - 매핑 : 하나의 값을 다른 값으로 대응시키는 것
+    ![](django_05.assets/6.PNG)
