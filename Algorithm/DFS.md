@@ -83,12 +83,12 @@ visited = [False] * n # n은 정점의 개수
       if not visted[adj]: # 아직 방문하지 않았따면
         visited[adj] = True # 방문 처리
         stack.append(adj) # 스택에 넣음
-        
-        dfs(0)
+    
+       dfs(0)
+    ```
 
 ```
 
 5. 구현 
 - BOJ 2606
-
 6. 이차원 격자에서의 DFS

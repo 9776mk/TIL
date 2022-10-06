@@ -12,6 +12,7 @@ python manage.py startapp practice
 ls
 5. 앱 등록
 vs code 키기
+code .
 settings.py -> INSTALLED_APPS => 'practice',
 6. 서버 실행 테스트
 python manage.py runserver
