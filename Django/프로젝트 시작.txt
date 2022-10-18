@@ -3,6 +3,9 @@ python -m venv venv
 . venv/Scripts/activate
 2. django LTS 버전 설치
 pip install django==3.2.13
+2.1 django-bootstrap5 설치
+pip install django-bootstrap5
+
 3. django 프로젝트 생성
 django-admin startproject django_0922
 4. 앱 생성
@@ -16,6 +19,12 @@ code .
 settings.py -> INSTALLED_APPS => 'practice',
 6. 서버 실행 테스트
 python manage.py runserver
+
+
+
+
+
+
 
 7. 앱 URL VIEW TEMPLATE
 7.1

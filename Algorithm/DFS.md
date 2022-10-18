@@ -80,7 +80,7 @@ visited = [False] * n # n은 정점의 개수
     while stack: # 스택이 빌 때까지(돌아갈 곳이 없을때까지) 반복
     cur = stack.pop() # 현재 방문 정점(후입선출)
     for adj in graph[cur]: # 인접한 모든 정점에 대해
-      if not visted[adj]: # 아직 방문하지 않았따면
+      if not visted[adj]: # 아직 방문하지 않았면
         visited[adj] = True # 방문 처리
         stack.append(adj) # 스택에 넣음
     
