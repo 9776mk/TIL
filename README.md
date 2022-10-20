@@ -24,6 +24,10 @@
 
 - [Web](https://github.com/9776mk/TIL/tree/master/Web)
 
+- [JavaScript](https://github.com/9776mk/TIL/tree/master/JavaScript)
+
+- [Django](https://github.com/9776mk/TIL/tree/master/Django)
+
 <details> 
   <summary>
   특강
