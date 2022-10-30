@@ -7,7 +7,7 @@ pip install django==3.2.13
 pip install django-bootstrap5
 
 3. django 프로젝트 생성
-django-admin startproject django_0922
+django-admin startproject django_0922 .
 4. 앱 생성
 주의할 점 : 커맨드를 manage.py가 있는 경로에서 실행해야 한다.
 cd django_0922

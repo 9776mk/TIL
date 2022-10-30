@@ -28,6 +28,8 @@
 
 - [Django](https://github.com/9776mk/TIL/tree/master/Django)
 
+- 기타
+
 <details> 
   <summary>
   특강
